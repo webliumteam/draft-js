@@ -39,6 +39,14 @@ function getDraftEditorSelectionWithNodes(
   focusNode: Node,
   focusOffset: number,
 ): DOMDerivedSelection {
+  // Check if anchorNode and focus node are belongs to the same editor
+  if (!root.contains(anchorNode) || !root.contains(focusNode)) {
+    return {
+      selectionState: nullthrows(editorState.getSelection()),
+      needsRecovery: false
+    };
+  }
+
   var anchorIsTextNode = anchorNode.nodeType === Node.TEXT_NODE;
   var focusIsTextNode = focusNode.nodeType === Node.TEXT_NODE;
 
