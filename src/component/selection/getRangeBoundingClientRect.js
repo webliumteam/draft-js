@@ -30,7 +30,7 @@ function getRect(range): Array<ClientRect> {
     rects = Array.from(range.endContainer && range.endContainer.getClientRects && range.endContainer.getClientRects());
   }
 
-  return rects || []
+  return rects
 }
 
 /**
