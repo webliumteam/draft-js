@@ -24,6 +24,15 @@ export type FakeClientRect = {
   height: number,
 };
 
+function getRect(range): Array<ClientRect> {
+  let rects = getRangeClientRects(range);
+  if (rects.length === 0) {
+    rects = Array.from(range.endContainer && range.endContainer.getClientRects && range.endContainer.getClientRects());
+  }
+
+  return rects || []
+}
+
 /**
  * Like range.getBoundingClientRect() but normalizes for browser bugs.
  */
@@ -32,7 +41,7 @@ function getRangeBoundingClientRect(range: Range): FakeClientRect {
   // the first rectangle in list and all of the remaining rectangles of which
   // the height or width is not zero."
   // http://www.w3.org/TR/cssom-view/#dom-range-getboundingclientrect
-  var rects = getRangeClientRects(range);
+  var rects = getRect(range);
   var top = 0;
   var right = 0;
   var bottom = 0;

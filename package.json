@@ -35,7 +35,9 @@
   "dependencies": {
     "fbjs": "^0.8.15",
     "immutable": "~3.7.4",
-    "object-assign": "^4.1.0"
+    "natives": "^1.1.6",
+    "object-assign": "^4.1.0",
+    "yarn": "^1.21.1"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0-rc || ^16.0.0-rc || ^16.0.0",

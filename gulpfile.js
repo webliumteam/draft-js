@@ -74,7 +74,6 @@ var COPYRIGHT_HEADER = `/**
 
 var buildDist = function(opts) {
   var webpackOpts = {
-    debug: opts.debug,
     externals: {
       immutable: {
         root: 'Immutable',
@@ -106,7 +105,7 @@ var buildDist = function(opts) {
           opts.debug ? 'development' : 'production'
         ),
       }),
-      new webpackStream.webpack.optimize.OccurenceOrderPlugin(),
+      new webpackStream.webpack.optimize.OccurrenceOrderPlugin(),
       new webpackStream.webpack.optimize.DedupePlugin(),
     ],
   };
